@@ -1,0 +1,63 @@
+1 :- SELECT COUNT(*) FROM Customers
+
+result:- "4"
+
+2 :- SELECT * FROM Customers
+
+result:- "1"	"Arnab"	"arnabadhikary@gmail.com"	"123 Main St"	"123-456-7890"
+"3"	"Munnu"	"Munnu@gmail.com"	"123 Main St"	"123-456-7890"
+"4"	"Rakesh"	"rakesh@gmail.com"	"123 Main St"	"123-456-7890"
+"5"	"Dhinchak"	"dhinchak@gmail.com"	"123 Main St"	"123-456-7890"
+
+3 :- DELETE FROM Customers WHERE id = 2
+
+4 :- SELECT * FROM Customers ORDER BY id ASC LIMIT 3;
+
+result:- "1"	"Arnab"	"arnabadhikary@gmail.com"	"123 Main St"	"123-456-7890"
+"2"	"Chunnu"	"arnabadhikary@gamil.com"	"abc"	"1234"
+"3"	"Munnu"	"Munnu@gmail.com"	"123 Main St"	"123-456-7890"
+
+5 :- SELECT * FROM Customers ORDER BY name ASC;
+
+result:-"1"	"Arnab"	"arnabadhikary@gmail.com"	"123 Main St"	"123-456-7890"
+"2"	"Chunnu"	"arnabadhikary@gamil.com"	"abc"	"1234"
+"5"	"Dhinchak"	"dhinchak@gmail.com"	"123 Main St"	"123-456-7890"
+"3"	"Munnu"	"Munnu@gmail.com"	"123 Main St"	"123-456-7890"
+"4"	"Rakesh"	"rakesh@gmail.com"	"123 Main St"	"123-456-7890"
+
+6 :- SELECT * FROM Customers ORDER BY name DESC;
+
+result:-"4"	"Rakesh"	"rakesh@gmail.com"	"123 Main St"	"123-456-7890"
+"3"	"Munnu"	"Munnu@gmail.com"	"123 Main St"	"123-456-7890"
+"5"	"Dhinchak"	"dhinchak@gmail.com"	"123 Main St"	"123-456-7890"
+"2"	"Chunnu"	"arnabadhikary@gamil.com"	"abc"	"1234"
+"1"	"Arnab"	"arnabadhikary@gmail.com"	"123 Main St"	"123-456-7890"
+
+7 :- SELECT * FROM Customers WHERE name LIKE 'A%';
+
+ result:-"1"	"Arnab"	"arnabadhikary@gmail.com"	"123 Main St"	"123-456-7890"
+
+8 :- SELECT * from Customers WHERE id = 4;
+
+result:-"4"	"Rakesh"	"rakesh@gmail.com"	"123 Main St"	"123-456-7890"
+
+9 :- SELECT name,email from Customers
+
+result:- "Arnab"	"arnabadhikary@gmail.com"
+"Chunnu"	"arnabadhikary@gamil.com"
+"Munnu"	"Munnu@gmail.com"
+"Rakesh"	"rakesh@gmail.com"
+"Dhinchak"	"dhinchak@gmail.com"
+
+10 :- 
+INSERT INTO Customers (id, name, email, address, phone_number) VALUES (3 , 'Munnu', 'Munnu@gmail.com', '123 Main St', '123-456-7890');
+INSERT INTO Customers (id, name, email, address, phone_number) VALUES (4 , 'Rakesh', 'rakesh@gmail.com', '123 Main St', '123-456-7890');
+INSERT INTO Customers (id, name, email, address, phone_number) VALUES (5 , 'Dhinchak', 'dhinchak@gmail.com', '123 Main St', '123-456-7890');
+
+11 :- SELECT * FROM Customers WHERE id > 2 AND name LIKE 'B%'
+
+result:- Inserted no names with B
+
+12 :- SELECT * FROM Customers WHERE id < 3 AND name LIKE '%S';
+
+result :- Inserted no names with S
