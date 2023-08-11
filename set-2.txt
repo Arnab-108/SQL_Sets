@@ -1,0 +1,50 @@
+1:- CREATE TABLE Restaurants (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    cuisine_type VARCHAR(100),
+    location VARCHAR(255),
+    average_rating DECIMAL(3,2),
+    delivery_available BOOLEAN
+);
+
+
+2:- INSERT INTO Restaurants (id, name, cuisine_type, location, average_rating, delivery_available) VALUES
+(1, 'Cafe Delight', 'Cafe', '123 Main Street', 4.5, true),
+(2, 'Pizza Paradise', 'Italian', '456 Elm Avenue', 4.2, true),
+(3, 'Spice Junction', 'Indian', '789 Oak Boulevard', 4.0, true),
+(4, 'Sushi Sensation', 'Japanese', '101 Pine Street', 4.8, true),
+(5, 'Burger Haven', 'American', '222 Maple Lane', 3.9, false);
+
+3:- SELECT * FROM Restaurants ORDER BY average_rating DESC
+result:-"4"	"Sushi Sensation"	"Japanese"	"101 Pine Street"	"4.8"	"1"
+"1"	"Cafe Delight"	"Cafe"	"123 Main Street"	"4.5"	"1"
+"2"	"Pizza Paradise"	"Italian"	"456 Elm Avenue"	"4.2"	"1"
+"3"	"Spice Junction"	"Indian"	"789 Oak Boulevard"	"4"	"1"
+"5"	"Burger Haven"	"American"	"222 Maple Lane"	"3.9"	"0"
+
+4:- SELECT * FROM Restaurants WHERE delivery_available = true AND average_rating > 4
+result:- "1"	"Cafe Delight"	"Cafe"	"123 Main Street"	"4.5"	"1"
+"2"	"Pizza Paradise"	"Italian"	"456 Elm Avenue"	"4.2"	"1"
+"4"	"Sushi Sensation"	"Japanese"	"101 Pine Street"	"4.8"	"1"
+
+5:-SELECT * from Restaurants WHERE cuisine_type = NULL
+result:- null
+
+6:-SELECT COUNT(*) FROM Restaurants where delivery_available = true
+result:- 4
+
+7:- SELECT * from Restaurants WHERE location = "New York"
+result:- null
+
+8:-SELECT AVG(average_rating) AS average_average_rating FROM Restaurants;
+result :- "4.279999999999999"
+
+9:-SELECT * FROM Restaurants ORDER BY average_rating DESC LIMIT 5
+result :- "4"	"Sushi Sensation"	"Japanese"	"101 Pine Street"	"4.8"	"1"
+"1"	"Cafe Delight"	"Cafe"	"123 Main Street"	"4.5"	"1"
+"2"	"Pizza Paradise"	"Italian"	"456 Elm Avenue"	"4.2"	"1"
+"3"	"Spice Junction"	"Indian"	"789 Oak Boulevard"	"4"	"1"
+"5"	"Burger Haven"	"American"	"222 Maple Lane"	"3.9"	"0"
+
+10:-DELETE FROM Restaurants WHERE id = 3;
+
