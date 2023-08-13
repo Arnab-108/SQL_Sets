@@ -1,0 +1,19 @@
+1:- SELECT * FROM Rides ORDER by fare asc LIMIT 1
+result :- "3"	"103"	"203"	"Start C"	"End Z"	"5.7"	"15.75"	"9.35" 
+    SELECT * FROM Rides ORDER by fare asc LIMIT 1
+result :- "4"	"104"	"204"	"Start D"	"End W"	"12.8"	"40"	"20"
+
+2:- SELECT driver_id, AVG(fare) AS avg_fare, AVG(distance) AS avg_distance FROM Rides GROUP BY driver_id;
+result :- "101"	"15.75"	"10.5"
+"102"	"12.6"	"8.2"
+"103"	"9.35"	"5.7"
+"104"	"20"	"12.8"
+"105"	"11.25"	"7.3"
+
+3:- SELECT driver_id, COUNT(*) AS ride_count
+FROM Rides
+GROUP BY driver_id
+HAVING COUNT(*) > 5;
+result :- null
+
+4:- 
